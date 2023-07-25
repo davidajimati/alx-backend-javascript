@@ -1,12 +1,10 @@
-function appendToEachArrayValue(array, appendString) {
-  const array2 = [];
+export default function appendToEachArrayValue(array1, appendString) {
+  const array = [];
   let i = 0;
-  for (const idx of array) {
-    array2[i] = appendString + idx;
+  for (const idx of array1) {
+    array[i] = appendString + idx;
     i += 1;
   }
 
-  return array2;
+  return array;
 }
-
-console.log(appendToEachArrayValue(['appended', 'fixed', 'displayed'], 'correctly-'));

@@ -5,7 +5,7 @@ export default function divideFunction(numerator, denominator) {
     } else {
       return numerator / denominator;
     }
-  } catch {
+  } catch (error) {
     throw new Error('cannot divide by 0');
   }
 }

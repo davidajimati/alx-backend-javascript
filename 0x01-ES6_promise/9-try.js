@@ -1,8 +1,11 @@
 export default function guardrail(mathFunction) {
   const queue = [];
-  return Promise.any(mathFunction())
-    .then((data) => {
-      queue.append(data);
-      queue.append('Guardrail was processed');
-    })
+  try {
+    queue.push(mathFunction);
+  } catch (e) {
+    queue.push(e);
+  }
+  finally {
+    queue.push('Guardrail was processed');
+  }
 }

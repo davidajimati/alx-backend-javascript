@@ -1,13 +1,13 @@
-function checkName(name) {
-  return (typeof (name) === 'string');
+function checkName(newName) {
+  return (typeof (newName) === 'string');
 }
 
-function checkLength(length) {
-  return (typeof (length) === 'number');
+function checkLength(newLength) {
+  return (typeof (newLength) === 'number');
 }
 
-function checkStudents(Students) {
-  return (typeof (Students) === 'object');
+function checkStudents(newStudents) {
+  return (typeof (newStudents) === 'object');
 }
 
 export default class HolbertonCourse {
@@ -33,9 +33,9 @@ export default class HolbertonCourse {
     return this._name;
   }
 
-  set name(name) {
-    if (checkName(name)) {
-      this._name = name;
+  set name(newName) {
+    if (checkName(newName)) {
+      this._name = newName;
     } else {
       throw new Error('Name must be a string');
     }
@@ -45,9 +45,9 @@ export default class HolbertonCourse {
     return this._length;
   }
 
-  set length(length) {
-    if (checkLength(length)) {
-      this._length = length;
+  set length(newLength) {
+    if (checkLength(newLength)) {
+      this._length = newLength;
     } else {
       throw new Error('Length must be a number');
     }
@@ -57,9 +57,9 @@ export default class HolbertonCourse {
     return this._students;
   }
 
-  set students(students) {
-    if (checkStudents(students)) {
-      this._students = students;
+  set students(newStudents) {
+    if (checkStudents(newStudents)) {
+      this._students = newStudents;
     } else {
       throw new Error('Students must be an array');
     }

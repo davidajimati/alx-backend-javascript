@@ -10,4 +10,4 @@ export default class Airport {
   toString() {
     return this._code;
   }
-}pu
+}

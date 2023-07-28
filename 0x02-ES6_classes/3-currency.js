@@ -7,7 +7,7 @@ function checkName(name) {
 }
 
 export default class Currency {
-  Constructor(code, name) {
+  constructor(code, name) {
     if (checkCode(code)) {
       this._code = code;
     } else {
@@ -48,3 +48,6 @@ export default class Currency {
     return (`${this._name}(${this._code})`);
   }
 }
+
+const dollar = new Currency('$', 'Dollars');
+console.log(dollar.displayFullCurrency());

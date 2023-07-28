@@ -11,7 +11,7 @@ function checkStudents(newStudents) {
 }
 
 export default class HolbertonCourse {
-  Constructor(name, length, students) {
+  constructor(name, length, students) {
     if (checkName(name)) {
       this._name = name;
     } else {

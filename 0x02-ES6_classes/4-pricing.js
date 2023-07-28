@@ -1,21 +1,13 @@
-import Currency from './3-currency';
-
-function checkAmount(amount) {
-  return (typeof (amount) === 'number');
-}
-
-function checkCurrency(currency) {
-  return (typeof (currency) === 'currency');
-}
+import Currency from './3-currency.js';
 
 export default class Pricing {
   constructor(amount, currency) {
-    if (checkAmount(amount)) {
+    if (typeof (amount) === 'number') {
       this._amount = amount;
     } else {
       throw new Error('amount must be a number');
     }
-    if (checkCurrency(currency)) {
+    if (currency instanceof Currency) {
       this._currency = currency;
     } else {
       throw new Error('currency must be a currency');
@@ -27,7 +19,7 @@ export default class Pricing {
   }
 
   set amount(newAmount) {
-    if (checkAmount(newAmount)) {
+    if (typeof (newAmount) === 'number') {
       this._amount = newAmount;
     } else {
       throw new Error('amount must be a number');
@@ -39,7 +31,7 @@ export default class Pricing {
   }
 
   set currency(newCurrency) {
-    if (checkCurrency(newCurrency)) {
+    if (newCurrency instanceof Currency) {
       this._currency = newCurrency;
     } else {
       throw new Error('currency must be a currency');
@@ -47,6 +39,14 @@ export default class Pricing {
   }
 
   displayFullPrice() {
-    return (`${this._amount}(${this._currency})`);
+    return (`${this._amount} ${this._currency._name} (${this._currency._code})`);
+  }
+
+  static convertPrice(amount, conversionRate) {
+    if (typeof (amount) != 'number' || typeof (conversionRate) != 'number') {
+      throw new Error("Must be a number");
+    } else {
+      return (amount * conversionRate);
+    }
   }
 }

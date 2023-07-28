@@ -1,16 +1,24 @@
-import Currency from './3-currency.js';
+import Currency from './3-currency';
 
 export default class Pricing {
   constructor(amount, currency) {
-    if (typeof (amount) === 'number') {
+    if (typeof amount === 'number') {
       this._amount = amount;
     } else {
-      throw new Error('amount must be a number');
+      throw new Error('Amount must be a number');
     }
     if (currency instanceof Currency) {
       this._currency = currency;
     } else {
-      throw new Error('currency must be a currency');
+      throw new Error('Currency must be a Currency');
+    }
+  }
+
+  set amount(newAmount) {
+    if (typeof newAmount === 'number') {
+      this._amount = newAmount;
+    } else {
+      throw new Error('Amount must be a number');
     }
   }
 
@@ -18,11 +26,11 @@ export default class Pricing {
     return this._amount;
   }
 
-  set amount(newAmount) {
-    if (typeof (newAmount) === 'number') {
-      this._amount = newAmount;
+  set currency(newCurrency) {
+    if (newCurrency instanceof Currency) {
+      this._currency = newCurrency;
     } else {
-      throw new Error('amount must be a number');
+      throw new Error('Currency must be a Currency');
     }
   }
 
@@ -30,23 +38,14 @@ export default class Pricing {
     return this._currency;
   }
 
-  set currency(newCurrency) {
-    if (newCurrency instanceof Currency) {
-      this._currency = newCurrency;
-    } else {
-      throw new Error('currency must be a currency');
-    }
-  }
-
   displayFullPrice() {
-    return (`${this._amount} ${this._currency._name} (${this._currency._code})`);
+    return `${this._amount} ${this._currency.name} (${this._currency.code})`;
   }
 
   static convertPrice(amount, conversionRate) {
-    if (typeof (amount) != 'number' || typeof (conversionRate) != 'number') {
-      throw new Error("Must be a number");
-    } else {
-      return (amount * conversionRate);
+    if (typeof amount === 'number') {
+      return amount * conversionRate;
     }
+    throw new Error('Amount must be a number');
   }
 }

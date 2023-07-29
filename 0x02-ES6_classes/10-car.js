@@ -1,35 +1,35 @@
 export default class Car {
-  constructor(brand, motor, color) {
+  constructor (brand, motor, color) {
     this._brand = brand;
     this._motor = motor;
     this._color = color;
   }
 
-  get brand() {
+  get brand () {
     return this._brand;
   }
 
-  set brand(newVal) {
-    this._brand = newVal
+  set brand (newVal) {
+    this._brand = newVal;
   }
 
-  get motor() {
+  get motor () {
     return this._motor;
   }
 
-  set motor(newVal) {
-    this._motor = newVal
+  set motor (newVal) {
+    this._motor = newVal;
   }
 
-  get color() {
+  get color () {
     return this._color;
   }
 
-  set color(newVal) {
-    this._color = newVal
+  set color (newVal) {
+    this._color = newVal;
   }
 
-  cloneCar() {
+  cloneCar () {
     return new Car(this._brand, this._color, this._motor);
   }
 }

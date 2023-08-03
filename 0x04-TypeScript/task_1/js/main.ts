@@ -1,4 +1,4 @@
-export default class Teacher {
+class Teacher {
     private _firstName: string;
     private _lastName: string;
     private _fullTimeEmployee: boolean;
@@ -57,4 +57,8 @@ export default class Teacher {
 
 interface Directors extends Teacher {
     numberOfReports: number;
+}
+
+function printTeacher(firstName: string, lastName: string): string {
+    return (`${firstName.slice(0, 1)}. ${lastName}`)
 }

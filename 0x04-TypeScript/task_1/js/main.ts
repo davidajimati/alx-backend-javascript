@@ -1,4 +1,4 @@
-class Teacher {
+export default class Teacher {
     private _firstName: string;
     private _lastName: string;
     private _fullTimeEmployee: boolean;
@@ -53,4 +53,8 @@ class Teacher {
     getAttribute(key: string): any {
         return this.additionalAttributes[key];
     }
+}
+
+interface Directors extends Teacher {
+    numberOfReports: number;
 }
